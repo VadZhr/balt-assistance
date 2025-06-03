@@ -1,6 +1,7 @@
 const express = require("express");
 const { Server } = require("socket.io");
 const http = require("http");
+const cors = require("cors");
 
 const db = require("./config/db.js");
 
@@ -23,11 +24,20 @@ const app = express();
 
 app.use(express.json());
 
+app.use(
+  cors({
+    origin: "https://balt-assistance.vercel.app",
+    methods: ["GET", "POST"],
+  })
+);
+
 const server = http.createServer(app);
 
 const io = new Server(server, {
-  cors: "*",
-  methods: ["GET", "POST"],
+  cors: {
+    origin: "https://balt-assistance.vercel.app",
+    methods: ["GET", "POST"],
+  },
 });
 
 io.on("connection", async (socket) => {
