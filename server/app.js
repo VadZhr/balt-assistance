@@ -114,4 +114,6 @@ io.on("connection", async (socket) => {
   });
 });
 
-server.listen(process.env.PORT || 4000, () => console.log("server runs"));
+const PORT = process.env.PORT || 4000;
+
+server.listen(PORT, () => console.log("server runs:", PORT));
