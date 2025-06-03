@@ -7,9 +7,15 @@ const DB_NAME = "myapp_db";
 const USER = "myapp_user";
 const SECRET = "myapp_pass";
 
-module.exports = new Sequelize(DB_NAME, USER, SECRET, {
+// DB_NAME, USER, SECRET
+
+module.exports = new Sequelize(process.env.DATABASE_URL, {
   host: "localhost",
   dialect: "postgres",
-  port: 5432,
   logging: false,
+  dialectOptions: {
+    ssl: {
+      rejectUnauthorized: false, // для защищённого соединения
+    },
+  },
 });
