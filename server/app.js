@@ -26,7 +26,7 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: "https://balt-assistance.vercel.app",
+    origin: ['https://balt-assistance.vercel.app'],
     methods: ["GET", "POST"],
   })
 );
@@ -35,7 +35,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: "https://balt-assistance.vercel.app",
+    origin: ['https://balt-assistance.vercel.app'],
     methods: ["GET", "POST"],
   },
 });
