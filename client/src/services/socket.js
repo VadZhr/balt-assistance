@@ -1,6 +1,6 @@
 import { io } from "socket.io-client";
 
-const URL = "https://balt-assistance-production.up.railway.app";
+const URL = "https://balt-assistance-production.up.railway.app/";
 
 export const socket = io(URL, {
   transports: ["websocket"],
