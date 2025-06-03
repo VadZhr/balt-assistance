@@ -104,4 +104,4 @@ io.on("connection", async (socket) => {
   });
 });
 
-server.listen(4000, () => console.log("server runs"));
+server.listen(process.env.PORT || 4000, () => console.log("server runs"));
